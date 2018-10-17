@@ -1,0 +1,47 @@
+
+.w-row {
+  position:relative;
+  box-sizing:border-box
+}
+.w-row:after {
+  clear: both;
+}
+.w-row:after, .w-row:before {
+  display: table;
+  content: "";
+}
+.w-row--flex {
+  display:-ms-flexbox;
+  display:flex
+}
+.w-row--flex:after,.w-row--flex:before {
+  display:none
+}
+.w-row--flex.w-align-bottom {
+  -ms-flex-align:end;
+  align-items:flex-end
+}
+.w-row--flex.w-align-middle {
+  -ms-flex-align:center;
+  align-items:center
+}
+.w-row--flex.w-justify-space-around {
+  -ms-flex-pack:distribute;
+  justify-content:space-around
+}
+.w-row--flex.w-justify-space-between {
+  -ms-flex-pack:justify;
+  justify-content:space-between
+}
+.w-row--flex.w-justify-end {
+  -ms-flex-pack:end;
+  justify-content:flex-end
+}
+.w-row--flex.w-justify-center {
+  -ms-flex-pack:center;
+  justify-content:center
+}
+
+
+
+

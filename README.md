@@ -1,4 +1,4 @@
-# y
+# why-ui
 
 > A Vue.js project
 

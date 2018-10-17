@@ -11,7 +11,7 @@
           <div>
             <p>author: Wang</p>
             <p>email: q315169677@126.com </p>
-            <p>github: <a href=""></a></p>
+            <p>github: <a href="https://github.com/chuangyi8/why-ui"></a></p>
           </div>
         </w-col>
         <w-col :span="12" class="text-right">

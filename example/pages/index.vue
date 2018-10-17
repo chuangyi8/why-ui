@@ -8,7 +8,7 @@
       <div class="about">
         <!--<router-link  @click.native='jump'  :to="{name: 'guide'}">开始使用</router-link>-->
         <a class="btn-start" @click='jump'>开始使用</a>
-        <a target="_blank" class="btn-github" href="#">GitHub</a>
+        <a target="_blank" class="btn-github" href="https://github.com/chuangyi8/why-ui">GitHub</a>
       </div>
     </div>
   </div>

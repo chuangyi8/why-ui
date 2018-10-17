@@ -1,4 +1,4 @@
-# y
+# why-ui
 
 > A Vue.js project
 
@@ -8,7 +8,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8086
 npm run dev
 
 # build for production with minification

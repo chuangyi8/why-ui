@@ -23,7 +23,6 @@
           </label>
         </td>
         <td v-for="title in td.data"  v-if="title!=false &&title!=true" :key="title">{{title}}</td>
-        <!--<td v-else-if="title!=true" :key="title">{{title}}</td>-->
       </tr>
       </tbody>
     </table>
@@ -67,12 +66,17 @@
             Vue.set(td, 'checked', false);
           }
         }
+        this.entities=this.items.map((item,i) => {
+          return {key:i,data:item}
+        }),
         this.allCheck = false;
+
 
       },
 
     },
     created () {
+      console.log(JSON.stringify(this.items))
       for (var td of this.items) {
         if (typeof td.checked === 'undefined') {
          // Vue.set(td, 'checked', false);
@@ -88,6 +92,7 @@
       // },
     },
     mounted(){
+      console.log("mounted");
       let heads = [].filter.call(this.$refs.title.getElementsByTagName("th"), (item)=>{
       	return item.nodeType == 1;
       });
@@ -106,7 +111,6 @@
     },
     methods:{
       checkOne(data){
-      //  console.log("checkOne");
         data.checked = !data.checked;
         if (data.checked) {
           this.checkResult.push(data);

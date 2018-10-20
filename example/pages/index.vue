@@ -26,14 +26,12 @@
         let self = this;
         setTimeout(() => {
           self.post_href()
-        }, 500)
+        }, 300)
       },
       post_href() {
-        console.log("23443242353");
         this.$router.push({
           path: '/guide',//要跳转的路径的 name,在 router 文件夹下的 index.js 文件内找
         })
-
       }
     }
   }

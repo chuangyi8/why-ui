@@ -8,16 +8,16 @@
     <div class="pageBox">
       <div class="dataTables_paginate paging_bootstrap_full_number" id="sample_1_paginate">
         <ul class="pagination" style="visibility: visible;">
-          <li class="prev" :class="{'disabled':nowPage === 1}">
+          <li class="prev" :class="{'disabled':nowPageData === 1}">
             <a href="javascript:;" title="First" @click="_first"><i class="w-icon-prev-arrow fs-14"></i></a>
           </li>
-          <li class="prev" :class="{'disabled':nowPage === 1}">
+          <li class="prev" :class="{'disabled':nowPageData === 1}">
             <a href="javascript:;" title="Prev" @click="_pre"><i class="w-icon-zuozhankaixianxing fs-14"></i></a>
           </li>
-          <li class="next" :class="{'disabled':nowPage === totalPage || totalCount === 0}">
+          <li class="next" :class="{'disabled':nowPageData === totalPage || totalCount === 0}">
             <a href="javascript:;" title="Next" @click="_next"><i class="w-icon-youzhankaixianxing fs-14"></i></a>
           </li>
-          <li class="next" :class="{'disabled':nowPage === totalPage || totalCount === 0}">
+          <li class="next" :class="{'disabled':nowPageData === totalPage || totalCount === 0}">
             <a href="javascript:;" title="Last" @click="_last"><i class="w-icon-next-arrow fs-14"></i></a>
           </li>
         </ul>
@@ -48,7 +48,8 @@
           total: 0,
           homePage: 1,
           skipPage: 1,
-          totalPage: 0
+          totalPage: 0,
+          nowPageData:this.nowPage
         };
       },
 
@@ -63,31 +64,35 @@
       },
       methods: {
         _next() {
-          if ((this.totalPage === 0 && this.nowPage < 0) || (this.totalPage > 0 && this.nowPage < this.totalPage)) {
-            this.nowPage = this.nowPage + 1;
-            this.skipPage = this.nowPage;
+          if ((this.totalPage === 0 && this.nowPageData < 0) || (this.totalPage > 0 && this.nowPageData < this.totalPage)) {
+            this.nowPageData = this.nowPageData + 1;
+            this.skipPage = this.nowPageData;
+            this.$emit('update:nowPage', this.nowPageData)
           }
         },
         _pre() {
-          if ((this.totalPage === 0 && this.nowPage > 0) ||
-            (this.totalPage > 0 && this.nowPage > 1)) {
-            this.nowPage = this.nowPage - 1;
-            this.skipPage = this.nowPage;
+          if ((this.totalPage === 0 && this.nowPageData > 0) ||
+            (this.totalPage > 0 && this.nowPageData > 1)) {
+            this.nowPageData = this.nowPageData - 1;
+            this.skipPage = this.nowPageData;
+            this.$emit('update:nowPage', this.nowPageData)
           }
         },
         _skip() {
           if (this.skipPage <= this.totalPage) {
-            this.nowPage = parseInt(this.skipPage);
+            this.nowPageData = parseInt(this.skipPage);
           }
         },
         _first() {
-          if (this.nowPage !== 1) {
-            this.nowPage = 1;
+          if (this.nowPageData !== 1) {
+            this.nowPageData = 1;
+            this.$emit('update:nowPage', this.nowPageData)
           }
         },
         _last() {
-          if (this.nowPage !== this.totalPage) {
-            this.nowPage = this.totalPage;
+          if (this.nowPageData !== this.totalPage) {
+            this.nowPageData = this.totalPage;
+            this.$emit('update:nowPage', this.nowPageData)
           }
         }
       }
